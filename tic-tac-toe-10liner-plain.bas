@@ -48,15 +48,16 @@
         	k = VAL(INKEY)
 			IF k>0 THEN 
 				DEC k
-				IF (p AND (2^k))=0 THEN
-  					p=(p OR(2^k))
+				u = 2^k
+				IF (p AND u)=0 THEN
+  					p=(p OR u)
   					IF q=1 THEN
-     					p1=(p1 OR(2^k))
+     					p1=(p1 OR u)
   					ELSE
   					
 4
 
-  						p2=(p2 OR(2^k))
+  						p2=(p2 OR u)
 					ENDIF
 					ADD q,1,1 TO 2 
 					GOSUB 9
@@ -66,12 +67,12 @@
 			FOR y = 0 TO 2
 				FOR x = 0 TO 2
 					k=y*3+x
-					IF (p1 AND(2^k))>0 THEN
+					IF (p1 AND u)>0 THEN
 						PUT IMAGE c AT l+x*16,t+y*16
 						
 5
 
-					ELSEIF (p2 AND(2^k))>0 THEN
+					ELSEIF (p2 AND u)>0 THEN
 						PUT IMAGE r AT l+x*16,t+y*16
 					ELSE
 						PUT IMAGE b AT l+x*16,t+y*16

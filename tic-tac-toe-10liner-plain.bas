@@ -39,7 +39,7 @@
 		a= (WORD)0 
 		g=(WORD)0 
 		h=0
-		w2=0
+		j=0
 		
 3
 
@@ -85,12 +85,12 @@
 6
 
 			h=h+((a AND 146)=146)+((a AND 273)=273)+((a AND 84)=84)+((a AND 73)=73)
-			w2=((g AND 7)=7)+((g AND 56)=56)+((g AND 448)=448)+((g AND 292)=292)
+			j=((g AND 7)=7)+((g AND 56)=56)+((g AND 448)=448)+((g AND 292)=292)
 			
 7
-			w2=w2+((g AND 146)=146)+((g AND 273)=273)+((g AND 84)=84)+((g AND 73)=73)
+			j=j+((g AND 146)=146)+((g AND 273)=273)+((g AND 84)=84)+((g AND 73)=73)
 			
-			EXIT IF (h) OR (w2) OR (n)
+			EXIT IF (h) OR (j) OR (n)
 		LOOP
 		CLS
 		LOCATE ,2
@@ -100,7 +100,7 @@
 
 			CENTER "NO ONE WINS!"
 		ENDIF
-		IF w2 THEN
+		IF j THEN
 			CENTER "PLAYER 2 WINS!"
 		ENDIF
 		IF h THEN

@@ -38,7 +38,7 @@
 		p=(WORD) 0 
 		a= (WORD)0 
 		g=(WORD)0 
-		w1=0
+		h=0
 		w2=0
 		
 3
@@ -79,18 +79,18 @@
 					ENDIF
 				NEXT
 			NEXT
-			w1=((a AND 7)=7)+((a AND 56)=56)+((a AND 448)=448)+((a AND 292)=292)
+			h=((a AND 7)=7)+((a AND 56)=56)+((a AND 448)=448)+((a AND 292)=292)
 			n=(p=511)
 
 6
 
-			w1=w1+((a AND 146)=146)+((a AND 273)=273)+((a AND 84)=84)+((a AND 73)=73)
+			h=h+((a AND 146)=146)+((a AND 273)=273)+((a AND 84)=84)+((a AND 73)=73)
 			w2=((g AND 7)=7)+((g AND 56)=56)+((g AND 448)=448)+((g AND 292)=292)
 			
 7
 			w2=w2+((g AND 146)=146)+((g AND 273)=273)+((g AND 84)=84)+((g AND 73)=73)
 			
-			EXIT IF (w1) OR (w2) OR (n)
+			EXIT IF (h) OR (w2) OR (n)
 		LOOP
 		CLS
 		LOCATE ,2
@@ -103,7 +103,7 @@
 		IF w2 THEN
 			CENTER "PLAYER 2 WINS!"
 		ENDIF
-		IF w1 THEN
+		IF h THEN
 			CENTER "PLAYER 1 WINS!"
 		ENDIF
 		WAIT 4000 MILLISECOND

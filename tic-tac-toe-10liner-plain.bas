@@ -80,6 +80,7 @@
 				NEXT
 			NEXT
 			w1=((p1 AND 7)=7)+((p1 AND 56)=56)+((p1 AND 448)=448)+((p1 AND 292)=292)
+			n=(p=511)
 
 6
 
@@ -88,11 +89,11 @@
 			
 7
 			w2=w2+((p2 AND 146)=146)+((p2 AND 273)=273)+((p2 AND 84)=84)+((p2 AND 73)=73)
-			n=(p=511)
+			
 			EXIT IF (w1) OR (w2) OR (n)
 		LOOP
 		CLS
-		LOCATE 0,2
+		LOCATE ,2
 		IF n THEN
 			
 8

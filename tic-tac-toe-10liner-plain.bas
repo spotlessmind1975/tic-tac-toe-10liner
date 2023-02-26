@@ -9,10 +9,10 @@
 	POSITIVE CONST t = ( SCREEN HEIGHT -w)/2 
 	POSITIVE CONST l = ( SCREEN WIDTH -w)/2
 	b = NEW IMAGE(16,16)
+	c = NEW IMAGE (16,16)
 
 1
 
-	c = NEW IMAGE (16,16)
 	r = NEW IMAGE (16,16)
 	DRAW 4,4 TO 12,12
 	DRAW 12,4 TO 4,12
@@ -24,12 +24,12 @@
 	DO
 		CLS BLACK
 		HOME
-		
-2 
-
 		q=1
 		GOSUB 9
 		INK RED
+		
+2 
+
 		CENTER "10 LINER"
 		CENTER "TIC-TAC-TOE!"
 		INK WHITE
@@ -40,10 +40,10 @@
 		g=(WORD)0 
 		h=0
 		j=0
+        BOX l-5, t-8 TO l+w+5,t+w+8
 		
 3
 
-        BOX l-5, t-8 TO l+w+5,t+w+8
         DO
         	k = VAL(INKEY)
 			IF k THEN 
@@ -55,8 +55,6 @@
      					a=(a OR u)
   					ELSE
   					
-4
-
   						g=(g OR u)
 					ENDIF
 					ADD q,1,1 TO 2 
@@ -65,17 +63,19 @@
 			ENDIF
 
 			FOR y = 0 TO 2
+
+4
+
 				FOR x = 0 TO 2
 					k=y*3+x
 					IF (a AND 2^k)>0 THEN
 						PUT IMAGE c AT l+x*16,t+y*16
 						
-5
-
 					ELSEIF (g AND 2^k)>0 THEN
 						PUT IMAGE r AT l+x*16,t+y*16
 					ELSE
 						PUT IMAGE b AT l+x*16,t+y*16
+5
 					ENDIF
 				NEXT
 			NEXT

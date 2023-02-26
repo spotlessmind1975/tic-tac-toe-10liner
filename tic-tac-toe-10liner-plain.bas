@@ -88,12 +88,12 @@
 			
 7
 			w2=w2+((p2 AND 146)=146)+((p2 AND 273)=273)+((p2 AND 84)=84)+((p2 AND 73)=73)
-			net=(p=511)
-			EXIT IF (w1<>0) OR (w2<>0) OR (net<>0)
+			n=(p=511)
+			EXIT IF (w1) OR (w2) OR (n)
 		LOOP
 		CLS
 		LOCATE 0,2
-		IF net THEN
+		IF n THEN
 			
 8
 

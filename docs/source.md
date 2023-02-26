@@ -108,6 +108,8 @@ We're updating the current player indicator. See [game state](./game-state.md#cu
 
     GOSUB 9 : ENDIF : ENDIF
 
+At this point we can call the routine which shows the symbol that is currently playing (at line 9), to update the screen.
+
 ## UPDATE THE GAME BOARD (LINES 4-5) 
 
     FOR y = 0 TO 2 : FOR x = 0 TO 2 : k = y * 3 + x

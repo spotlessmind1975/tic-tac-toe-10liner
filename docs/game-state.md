@@ -37,6 +37,8 @@ To decide the drawn is enought to check a single value (all 1 to 9 bits so check
   * all equal symbols on the main diagonal: `273`;
   * all equal symbols on the secondary diagonal: `84`.
 
+To optimize the coding space, instead of verifying each single condition with a separate `IF` or with a series of logical `OR` conditions, the convention is used whereby the comparison operation (`=`) by itself gives an algebraic result. Adding all the algebric results, even if only one is non-zero, will lead to the same result but with less code. The conditions to be checked are three, separately: the victory of the first player, the victory of the second player, the draw. So three sums are expected.
+
 ## SELECTED BOX (k)
 
 The box where the player wants to place his symbol is collected in the variable `k`. This variable is then normalized to zero, to locate the corresponding bit in the various controls.

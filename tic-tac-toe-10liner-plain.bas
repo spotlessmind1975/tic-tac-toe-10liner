@@ -67,12 +67,12 @@
 			FOR y = 0 TO 2
 				FOR x = 0 TO 2
 					k=y*3+x
-					IF (a AND 2^k) THEN
+					IF (a AND 2^k)>0 THEN
 						PUT IMAGE c AT l+x*16,t+y*16
 						
 5
 
-					ELSEIF (g AND 2^k) THEN
+					ELSEIF (g AND 2^k)>0 THEN
 						PUT IMAGE r AT l+x*16,t+y*16
 					ELSE
 						PUT IMAGE b AT l+x*16,t+y*16

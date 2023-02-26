@@ -11,12 +11,12 @@ The emulator can be downloaded [here](https://www.6809.org.uk/xroar/).
 ### Loading instructions (BIN file)
 
 Once the emulator software has been installed and the TRS-80 ROMS has been installed under the "roms" folder, you can directly perform the command line game, indicating the file as a parameter of the emulator:
- - <code>xroar.exe --machine coco tic-tac-toe-10liner.coco.bin</code> ([click here to download](../bin/tic-tac-toe-10liner.coco.bin))
+ - <code>xroar.exe --machine coco tic-tac-toe-10liner.coco.bin</code> ([click here to download](https://spotlessmind1975.itch.io/tic-tac-toe-10liner))
  
 ### Loading instructions (DSK image)
 
 Once the emulator software has been installed and the TRS-80 ROMS has been installed under the "roms" folder, you can directly perform the command line game, indicating the file as a parameter of the emulator:
- - <code>xroar.exe --machine coco tic-tac-toe-10liner.coco.dsk</code>  ([click here to download](../bin/tic-tac-toe-10liner.coco.dsk))
+ - <code>xroar.exe --machine coco tic-tac-toe-10liner.coco.dsk</code>  ([click here to download](https://spotlessmind1975.itch.io/tic-tac-toe-10liner))
 
 Once loaded the disk image, the following commands must be typed to load and run the game:
  - <code>LOADM"TIC-TAC-.COC"</code>

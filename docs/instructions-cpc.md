@@ -13,7 +13,7 @@ The emulator can be downloaded [here](https://emutopia.com/index.php/emulators/i
 Once the emulator software has been installed, follow the instructions below:
  - start **caprice.exe** program;
  - click on **Disk** > **Load image on Drive A...**
- - select <code>tic-tac-toe-10liner.cpc.dsk</code> file ([click here to download](../bin/tic-tac-toe-10liner.cpc.dsk));
+ - select <code>tic-tac-toe-10liner.cpc.dsk</code> file ([click here to download](https://spotlessmind1975.itch.io/tic-tac-toe-10liner));
  - click on **Open**;
  - type <code>CLEAR &1200:LOAD"MAIN.COM",&1200:CALL&1200</code>.
 

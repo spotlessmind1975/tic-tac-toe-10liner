@@ -11,7 +11,7 @@ The emulator can be downloaded [here](https://www.6809.org.uk/xroar/).
 ### Loading instructions
 
 Once the emulator software has been installed and the Dragon 64 ROMS has been installed under the "roms" folder, you can directly perform the command line game, indicating the file as a parameter of the emulator:
- - <code>xroar.exe --machine d64 tic-tac-toe-10liner.d64.bin</code> ([click here to download](../bin/tic-tac-toe-10liner.d64.bin))
+ - <code>xroar.exe --machine d64 tic-tac-toe-10liner.d64.bin</code> ([click here to download](https://spotlessmind1975.itch.io/tic-tac-toe-10liner))
  
 ### Listing the source code
 

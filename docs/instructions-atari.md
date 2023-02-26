@@ -11,7 +11,7 @@ The emulator can be downloaded [here](https://www.virtualdub.org/altirra.html).
 Once the emulator software has been installed, follow the instructions below:
  - start **altirra.exe** program;
  - click on **File** > **Boot Image...**
- - select <code>tic-tac-toe-10liner.atari.xex</code> file ([click here to download](../bin/tic-tac-toe-10liner.atari.dsk));
+ - select <code>tic-tac-toe-10liner.atari.xex</code> file ([click here to download](https://spotlessmind1975.itch.io/tic-tac-toe-10liner));
  - click on **Open**.
 
 Alternatively, you can directly perform the command line game, indicating the file as a parameter of the emulator:

@@ -13,7 +13,7 @@ The emulator can be downloaded [here](https://vice-emu.sourceforge.io/).
 Once the emulator software has been installed, follow the instructions below:
  - start **x64sc.exe** program;
  - click on **File** > **Smart attach...**
- - select <code>tic-tac-toe-10liner.c64.prg</code> file ([click here to download](../bin/tic-tac-toe-10liner.c64.prg)) or <code>tic-tac-toe-10liner.c64.d64</code> file ([click here to download](../bin/tic-tac-toe-10liner.c64.d64));
+ - select <code>tic-tac-toe-10liner.c64.prg</code> file ([click here to download](https://spotlessmind1975.itch.io/tic-tac-toe-10liner)) or <code>tic-tac-toe-10liner.c64.d64</code> file ([click here to download](https://spotlessmind1975.itch.io/tic-tac-toe-10liner));
  - click on **Open**.
 
 Alternatively, you can directly perform the command line game, indicating the file as a parameter of the emulator, so you can type:

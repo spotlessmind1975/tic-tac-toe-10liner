@@ -7,19 +7,15 @@ BASIC 10 liner "Tic-Tac-Toe" for 2 players
 
 [Click here](/docs/instructions.md) to read the instructions on how to play. 
 
-Click here to download the executables for the various home computers:
-  * **[ATARI 400/800](tic-tac-toe-10liner.atari.xex)** [XEX format] ([more info](docs/instructions-atari.md))
-  * **[ATARI XL/XE](tic-tac-toe-10liner.atarixl.xex)** [XEX format] ([more info](docs/instructions-atarixl.md))
-  * **Commodore 64** ([more info](docs/instructions-c64.md))
-    * [PRG format](tic-tac-toe-10liner.c64.prg) [PRG format]
-    * [D64 format](tic-tac-toe-10liner.c64.d64) [D64 format]
-  * **TRS-80 Color Computer (COCO)** ([more info](docs/instructions-coco.md))
-    * [BIN format](tic-tac-toe-10liner.coco.bin) [BIN format]
-    * [DSK format](tic-tac-toe-10liner.coco.dsk) [DSK format]
-  * **[AMSTRAD CPC 664](tic-tac-toe-10liner.cpc.dsk)** [DSK format] ([more info](docs/instructions-cpc.md))
-  * **[Dragon 64](tic-tac-toe-10liner.d64.bin)** [BIN format] ([more info](docs/instructions-d64.md))
-  * **[MSX](tic-tac-toe-10liner.msx1.rom)** [ROM format]([more info](docs/instructions-msx1.md))
-  * **[Olivetti Prodest PC128](tic-tac-toe-10liner.pc128op.k7)** [K7 tape format] ([more info](docs/instructions-pc128op.md))
+[Click here](https://spotlessmind1975.itch.io/tic-tac-toe-10liner) to download the executables for the various home computers:
+  * **ATARI 400/800** [XEX format] ([more info](docs/instructions-atari.md))
+  * **ATARI XL/XE** [XEX format] ([more info](docs/instructions-atarixl.md))
+  * **Commodore 64** [PRG & D64 format] ([more info](docs/instructions-c64.md))
+  * **TRS-80 Color Computer (COCO)** [BIN & DSK format] ([more info](docs/instructions-coco.md))
+  * **AMSTRAD CPC 664** [DSK format] ([more info](docs/instructions-cpc.md))
+  * **Dragon 64** [BIN format] ([more info](docs/instructions-d64.md))
+  * **MSX** [ROM format]([more info](docs/instructions-msx1.md))
+  * **Olivetti Prodest PC128** [K7 tape format] ([more info](docs/instructions-pc128op.md))
   
 This game joined the ["BASIC10Liner" competition 2023](https://gkanold.wixsite.com/homeputerium).
 

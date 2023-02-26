@@ -17,7 +17,7 @@ Once the emulator software has been installed, follow the instructions below:
  - click on **Ok**;
  - click on **Removables**;
  - click on **Load...** next to "K7" drawer;
- - select <code>tic-tac-toe-10liner.pc128op.k7</code> file ([click here to download](../bin/tic-tac-toe-10liner.pc128op.k7));
+ - select <code>tic-tac-toe-10liner.pc128op.k7</code> file ([click here to download](https://spotlessmind1975.itch.io/tic-tac-toe-10liner));
  - click on **Open**;
  - type <code>CLEAR,&H2FFF: LOADM"CASS:",R: EXEC</code>.
 

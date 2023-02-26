@@ -11,7 +11,7 @@ The emulator can be downloaded [here](http://bluemsx.msxblue.com/download.html).
 Once the emulator software has been installed, follow the instructions below:
  - start **bluemsx.exe** program;
  - click on **Slot** > **Insert...**
- - select <code>tic-tac-toe-10liner.msx1.rom</code> file ([click here to download](../bin/tic-tac-toe-10liner.msx1.rom));
+ - select <code>tic-tac-toe-10liner.msx1.rom</code> file ([click here to download](https://spotlessmind1975.itch.io/tic-tac-toe-10liner));
  - click on **Open**.
 
 ### Listing the source code

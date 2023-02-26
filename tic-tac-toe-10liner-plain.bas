@@ -5,8 +5,9 @@
 	BITMAP ENABLE (16) 
 	INK WHITE 
 	CLS BLACK 
-	POSITIVE CONST t = ( SCREEN HEIGHT -(16*3))/2 
-	POSITIVE CONST l = ( SCREEN WIDTH -(16*3))/2
+	CONST w=16*3
+	POSITIVE CONST t = ( SCREEN HEIGHT -w)/2 
+	POSITIVE CONST l = ( SCREEN WIDTH -w)/2
 	b = NEW IMAGE(16,16)
 
 1
@@ -42,7 +43,7 @@
 		
 3
 
-        BOX l-5, t-8 TO l+(16*3)+5,t+(16*3)+8
+        BOX l-5, t-8 TO l+w+5,t+w+8
         DO
         	k = VAL(INKEY)
 			IF k>0 THEN 

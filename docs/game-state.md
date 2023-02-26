@@ -1,7 +1,5 @@
 # INTERNAL GAME STATE
 
-## INTRODUCTION
-
 ## THE BOARD MARGINS (t, l)
 
 Now we calculate the left (`l`) and top margins (`t`) of the game board. This type of calculations is carried out through the use of the constants (`CONST`) which, in general, allow a better performance and an employment of space equal to zero.

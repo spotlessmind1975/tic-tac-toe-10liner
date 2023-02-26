@@ -97,8 +97,7 @@ The first thing is to check if the box has already been used or not. See [game s
 
 Now let's see if it's the turn of the first player (symbol **O**). In which case, the variable `a` will be populated with the occupied box. See [game state](./game-state.md#the-game-board-p-a-g) for more information.
 
-    ELSE
-    4 g=(g OR u) : ENDIF
+    ELSE : g=(g OR u) : ENDIF
 
 If it is the second player (symbol **X**) then the variable `g` will be updated. See [game state](./game-state.md#the-game-board-p-a-g) for more information.
 

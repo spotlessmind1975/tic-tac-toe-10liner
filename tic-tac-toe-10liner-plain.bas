@@ -34,7 +34,7 @@
 		CENTER "TIC-TAC-TOE!"
 		INK WHITE
 		LOCATE , SCREEN ROWS - 1
-		CENTER "1...9 TO PLAY"; 
+		CENTER "1...9 TO PLAY";
 		p=(WORD) 0 
 		a= (WORD)0 
 		g=(WORD)0 
@@ -46,7 +46,7 @@
         BOX l-5, t-8 TO l+w+5,t+w+8
         DO
         	k = VAL(INKEY)
-			IF k>0 THEN 
+			IF k THEN 
 				DEC k
 				u = 2^k
 				IF (p AND u)=0 THEN
@@ -67,12 +67,12 @@
 			FOR y = 0 TO 2
 				FOR x = 0 TO 2
 					k=y*3+x
-					IF (a AND 2^k)>0 THEN
+					IF (a AND 2^k) THEN
 						PUT IMAGE c AT l+x*16,t+y*16
 						
 5
 
-					ELSEIF (g AND 2^k)>0 THEN
+					ELSEIF (g AND 2^k) THEN
 						PUT IMAGE r AT l+x*16,t+y*16
 					ELSE
 						PUT IMAGE b AT l+x*16,t+y*16

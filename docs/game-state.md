@@ -14,17 +14,17 @@ Since they are parameters that depend on the geometry of the resolution selected
 
 We define three spaces of image where we will position the background to delete the symbol (`b`), the symbol **O** (`r`) and the symbol **X** (`c`), respectively. Since competition rules prevent loading files from mass storage media, the technique of drawing graphics with [ugBasic](https://ugbasic.iwashere.eu) primitives was chosen. Once drawn, the elements are captured with the `GET IMAGE` primitive and stored in the three variables above.
 
-## THE GAME BOARD (p, p1, p2)
+## THE GAME BOARD (p, a, g)
 
 ![game board state](../pictures/game-board-state.png)
 
-The variable `p` takes care of memorizing which boxes are actually occupied during the game, while `p1` and `p2` do the same for each player. 
+The variable `p` takes care of memorizing which boxes are actually occupied during the game, while `a` and `j` do the same for each player. 
 
 The set of boxes is represented by a set of bits. Each bit of the various variables will indicate whether the box is empty (bit 0) or used (bit 1). As there are 9 boxes (1...9), 9 bits are needed. Since a single byte cannot hold more than 8 bits, a variable type with two bytes must be used. 
 
 In [ugBasic](https://ugbasic.iwashere.eu) this variable is the `WORD` and therefore contains 16 bits, of which only the first nine will be used.
 
-## WHO WINS? (w1, w2, net)
+## WHO WINS? (h, j, n)
 
 The victory conditions for each player and the drawn condition is stored in `w1`, `w2` and `net` variable, respectively. So, when all squares are occupied, no other moves are possible and the game is drawn. On the same way, when specific boxes are used, the player win.
 
@@ -46,6 +46,10 @@ To optimize the coding space, instead of verifying each single condition with a 
 ## SELECTED BOX (k)
 
 The box where the player wants to place his symbol is collected in the variable `k`. This variable is then normalized to zero, to locate the corresponding bit in the various controls.
+
+## SELECTED BOX AS BITMASK (u)
+
+This is the same as `k`, but as a power of two.
 
 ## CURRENT PLAYER (q)
 

@@ -37,6 +37,10 @@ To decide the drawn is enought to check a single value (all 1 to 9 bits so check
   * all equal symbols on the main diagonal: `273`;
   * all equal symbols on the secondary diagonal: `84`.
 
+![game board state winning](../pictures/game-board-state2.png)
+
+Clearly, it is not the specific value that is important but that the bits are so valued. So you need to "mask" the bits to check only those bits, excluding those that are of little interest. To do this, the bit-by-bit logical AND operation must be used.
+
 To optimize the coding space, instead of verifying each single condition with a separate `IF` or with a series of logical `OR` conditions, the convention is used whereby the comparison operation (`=`) by itself gives an algebraic result. Adding all the algebric results, even if only one is non-zero, will lead to the same result but with less code. The conditions to be checked are three, separately: the victory of the first player, the victory of the second player, the draw. So three sums are expected.
 
 ## SELECTED BOX (k)

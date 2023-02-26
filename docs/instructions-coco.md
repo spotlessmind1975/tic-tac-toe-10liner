@@ -19,7 +19,7 @@ Once the emulator software has been installed and the TRS-80 ROMS has been insta
  - <code>xroar.exe --machine coco tic-tac-toe-10liner.coco.dsk</code>  ([click here to download](../bin/tic-tac-toe-10liner.coco.dsk))
 
 Once loaded the disk image, the following commands must be typed to load and run the game:
- - <code>LOADM"TIC-TAC-.COM"</code>
+ - <code>LOADM"TIC-TAC-.COC"</code>
  - <code>EXEC</code>
 
 ### Listing the source code

@@ -20,13 +20,13 @@
 	GET IMAGE b FROM 32,32 
 	GET IMAGE c FROM 0,0
 	GET IMAGE r FROM 16,0
-	HALT
 	DO
 		CLS BLACK
 		HOME
 		
 2 
 
+		q=1
 		GOSUB 9
 		INK RED
 		CENTER "10 LINER"
@@ -38,7 +38,7 @@
 		p=(WORD) 0 
 		p1= (WORD)0 
 		p2=(WORD)0 
-		w1=0 
+		w1=0
 		w2=0
 		
 3
@@ -58,7 +58,7 @@
 
   						p2=(p2 OR(2^k))
 					ENDIF
-					ADD q,1,1To2 
+					ADD q,1,1 TO 2 
 					GOSUB 9
 				ENDIF
 			ENDIF
@@ -78,36 +78,36 @@
 					ENDIF
 				NEXT
 			NEXT
-			w1=(p1=7)+(p1=56)+(p1=448)+(p1=292)
+			w1=((p1 AND 7)=7)+((p1 AND 56)=56)+((p1 AND 448)=448)+((p1 AND 292)=292)
 
 6
 
-			w1=w1+(p1=146)+(p1=73)+(p1=273)+(p1=84)+(p1=49)+(p1=92)+(p1=124)
-			w2=(p2=7)+(p2=56)+(p2=448)+(p2=292)+(p2=146)
+			w1=w1+((p1 AND 146)=146)+((p1 AND 273)=273)+((p1 AND 84)=84)+((p1 AND 73)=73)
+			w2=((p2 AND 7)=7)+((p2 AND 56)=56)+((p2 AND 448)=448)+((p2 AND 292)=292)
 			
 7
-			w2=w2+(p2=73)+(p2=273)+(p2=84)+(p2=49)+(p2=92)+(21=124)
+			w2=w2+((p2 AND 146)=146)+((p2 AND 273)=273)+((p2 AND 84)=84)+((p2 AND 73)=73)
 			net=(p=511)
 			EXIT IF (w1<>0) OR (w2<>0) OR (net<>0)
 		LOOP
 		CLS BLACK 
-		IF w1 THEN
+		IF net THEN
 			CLS
 			
 8
 
 			LOCATE 0,2
-			CENTER "PLAYER 1 WINS!"
+			CENTER "NO ONE WINS!"
 		ENDIF
 		IF w2 THEN
 		    CLS
 			LOCATE 0,2
 			CENTER "PLAYER 2 WINS!"
 		ENDIF
-		IF net THEN
+		IF w1 THEN
 			CLS
 			LOCATE 0,2
-			CENTER "NO ONE WINS!"
+			CENTER "PLAYER 1 WINS!"
 		ENDIF
 		WAIT 4000 MILLISECOND
 	LOOP
@@ -122,5 +122,6 @@
 		PUT IMAGE r AT SCREEN WIDTH -16,t
 	ENDIF
 	RETURN
+
 
 

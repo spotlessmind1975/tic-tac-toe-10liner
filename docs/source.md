@@ -16,16 +16,15 @@ We ask for a resolution that gives a good number of colors. Let us remember that
 
 Change color to white (foreground) and black (background). 
 
-     POSITIVE CONST t = 
-        ( SCREEN HEIGHT - (((16*3))))/2 :
-     POSITIVE CONST l = 
-        ( SCREEN WIDTH - ((16*3)))/2
+    CONST w=16*3
+	POSITIVE CONST t = ( SCREEN HEIGHT - w )  /2 
+	POSITIVE CONST l = ( SCREEN WIDTH - w ) / 2
 
 Now we calculate the left (`l`) and top margins (`t`) of the game board. This type of calculations is carried out through the use of the constants (`CONST`) which, in general, allow a better performance and an employment of space equal to zero. See [game state](./game-state.md#the-board-margins-t-l) for more information about `POSITIVE` modifier.
 
       b = NEW IMAGE(16,16)
-    1 c = NEW IMAGE (16,16)
-      r = NEW IMAGE (16,16)
+      c = NEW IMAGE (16,16)
+    1 r = NEW IMAGE (16,16)
 
 We define three spaces of image where we will position the background to delete the symbol (`b`), the symbol **O** (`r`) and the symbol **X** (`c`), respectively. See [game state](./game-state.md#the-pieces-b-c-r) for more information
 
@@ -55,52 +54,53 @@ This is where the game loop begins: every time the game ends, it will start over
 
 These instructions clear the screen and set the coordinates of the next screen write to the origin (0,0).
 
-    2 GOSUB 9
+    q = 1 : GOSUB 9
 
 At this point we call the routine which shows the symbol that is currently playing (at line 9).
 
-    INK RED : CENTER "10 LINER" : CENTER "TIC-TAC-TOE!" : PRINT
+      INK RED
+    2 CENTER "10 LINER" : CENTER "TIC-TAC-TOE!" : PRINT
 
 Now let's print the three lines with the game title.
 
-    INK WHITE : LOCATE 0, SCREEN ROWS - 1 : CENTER "1...9 TO PLAY"; 
+    INK WHITE : LOCATE , SCREEN ROWS - 1 : CENTER "1...9 TO PLAY"; 
 
 We print the game instructions on the last line.
 
-    p = (WORD) 0 : p1 = (WORD) 0 : p2 = (WORD) 0 
+    p = (WORD) 0 : a = (WORD) 0 : g = (WORD) 0 
 
-We initialize the three variables of the game, namely: the positions occupied by both symbols (`p`), the positions occupied by the first player (sign O, `p1`) and the positions occupied by the second player (X, `p2`). See [game state](./game-state.md#the-game-board-p-p1-p2) for more information.
+We initialize the three variables of the game, namely: the positions occupied by both symbols (`p`), the positions occupied by the first player (sign O, `a`) and the positions occupied by the second player (X, `g`). See [game state](./game-state.md#the-game-board-p-a-g) for more information.
 
-    w1 = 0 : w2 = 0
+    h = 0 : j = 0
 
-We also initialize the variables that take into account the victory conditions, i.e. those combinations that actually determine a victory for one or the other player. See [game state](./game-state.md#who-wins-w1-w2-net) for more information.
+We also initialize the variables that take into account the victory conditions, i.e. those combinations that actually determine a victory for one or the other player. See [game state](./game-state.md#who-wins-h-j-n) for more information.
 
-    3 BOX l-5, t-8 TO l+(16*3)+5, t+(16*3)+8
+    BOX l-5, t-8 TO l+w+5, t+w+8
 
 This instruction draws the edge of the game board.
 
 ## INNER LOOP (3-7)
 
-    DO : k = VAL(INKEY)
+    3 DO : k = VAL(INKEY)
 
 At each turn, we read the entered key from the keyboard, and convert it into a digit from zero to 9. See [game state](./game-state.md#selected-box-k) for more information.
 
-    1 IF k>0 THEN : DEC k
+    IF k THEN : DEC k : u = 2^k
 
 This way we monitor keystrokes. Since the bits are 0 based, we decrement the index position entered.
 
-    IF (p AND (2^k)) = 0 THEN : p=(p OR(2^k))
+    IF (p AND u) = 0 THEN : p=(p OR u)
 
-The first thing is to check if the box has already been used or not. See [game state](./game-state.md#the-game-board-p-p1-p2) for more information.
+The first thing is to check if the box has already been used or not. See [game state](./game-state.md#the-game-board-p-a-g) for more information.
 
-    IF q=1 THEN : p1=(p1 OR(2^k))
+    IF q=1 THEN : a=(a OR u)
 
-Now let's see if it's the turn of the first player (symbol **O**). In which case, the variable `p1` will be populated with the occupied box. See [game state](./game-state.md#the-game-board-p-p1-p2) for more information.
+Now let's see if it's the turn of the first player (symbol **O**). In which case, the variable `a` will be populated with the occupied box. See [game state](./game-state.md#the-game-board-p-a-g) for more information.
 
     ELSE
-    4 p2=(p2 OR(2^k)) : ENDIF
+    4 g=(g OR u) : ENDIF
 
-If it is the second player (symbol **X**) then the variable `p2` will be updated. See [game state](./game-state.md#the-game-board-p-p1-p2) for more information.
+If it is the second player (symbol **X**) then the variable `g` will be updated. See [game state](./game-state.md#the-game-board-p-a-g) for more information.
 
     ADD q, 1, 1 TO 2 
 
@@ -110,21 +110,23 @@ We're updating the current player indicator. See [game state](./game-state.md#cu
 
 At this point we can call the routine which shows the symbol that is currently playing (at line 9), to update the screen.
 
-## UPDATE THE GAME BOARD (LINES 4-5) 
+## UPDATE THE GAME BOARD (LINES 3-5) 
 
-    FOR y = 0 TO 2 : FOR x = 0 TO 2 : k = y * 3 + x
+      FOR y = 0 TO 2
+    4 FOR x = 0 TO 2 : k = y * 3 + x
 
 We go through the entire game plan, for each row and for each column. The index `k` actually contains the positional index according to the table drawn above. See [game state](./game-state.md#row-and-column-xy) for more information.
 
-    IF (p1 AND(2^k))>0 THEN : PUT IMAGE c AT l+x*16,t+y*16
+    IF (a AND(2^k))>0 THEN : PUT IMAGE c AT l+x*16,t+y*16
 
-If the identified position is used by the first player, then we draw a **O**. See [game state](./game-state.md#the-game-board-p-p1-p2) for more information.
+If the identified position is used by the first player, then we draw a **O**. See [game state](./game-state.md#the-game-board-p-a-g) for more information.
 
-    5 ELSEIF (p2 AND(2^k))>0 THEN : PUT IMAGE r AT l+x*16,t+y*16
+    ELSEIF (g AND(2^k))>0 THEN : PUT IMAGE r AT l+x*16,t+y*16
 
-If the identified position is used by the second player, then we draw a **X**.  See [game state](./game-state.md#the-game-board-p-p1-p2) for more information.
+If the identified position is used by the second player, then we draw a **X**.  See [game state](./game-state.md#the-game-board-p-a-g) for more information.
 
-    ELSE : PUT IMAGE b AT l+x*16,t+y*16 : ENDIF
+      ELSE : PUT IMAGE b AT l+x*16,t+y*16 
+    5 ENDIF
 
 For other cases, we clean the position.
 
@@ -134,46 +136,41 @@ Repeat the loop for each cell.
 
 ## CHECK CONDITIONS (LINES 5-7) 
 
-	w1=(p1=7)+(p1=56)+(p1=448)+(p1=292) 
-    6 w1=w1+(p1=146)+(p1=73)+(p1=273)+(p1=84)+(p1=49)+(p1=92)+(p1=124)
-
-First we calculate if the first player has won, by adding up each single victory condition. See [game state](./game-state.md#who-wins-w1-w2-net) for more information.
-
-    w2=(p2=7)+(p2=56)+(p2=448)+(p2=292)+(p2=146)
-    7 w2=w2+(p2=73)+(p2=273)+(p2=84)+(p2=49)+(p2=92)+(21=124)
+      h=((a AND 7)=7)+((a AND 56)=56)+((a AND 448)=448)+((a AND 292)=292)
+	  n=(p=511)
+    6 h=h+((a AND 146)=146)+((a AND 273)=273)+((a AND 84)=84)+((a AND 73)=73)
+	  j=((g AND 7)=7)+((g AND 56)=56)+((g AND 448)=448)+((g AND 292)=292)
 			
-Then we calculate if the second player has won, by adding up each single victory condition. See [game state](./game-state.md#who-wins-w1-w2-net) for more information.
+    7 j=j+((g AND 146)=146)+((g AND 273)=273)+((g AND 84)=84)+((g AND 73)=73)
 
-    net=(p=511)
+We calculate if the first player has won, by adding up each single victory condition.At the same time, we calculate if the second player has won, by adding up each single victory condition. Finally, we calculate if both players have drawn. See [game state](./game-state.md#who-wins-h-j-n) for more information.
 
-Finally, we calculate if both players have drawn. See [game state](./game-state.md#who-wins-w1-w2-net) for more information.
-
-    EXIT IF (w1<>0) OR (w2<>0) OR (net<>0)
+    EXIT IF (h) OR (j) OR (n)
 
 If one of the sums is not zero, we can break out of the innermost loop, and decide who wins.
 
-   LOOP
+    LOOP
 
 Here ends the inner loop.
 
 ## FINAL SCREEN (LINES 7-8)
 
-	CLS BLACK 
+	CLS : LOCATE ,2 
 
-Clear the screen to black.
+Clear the screen and move the cursor to the destination position.
 
-    IF w1 THEN : CLS 
-    8 LOCATE 0,2 : CENTER "PLAYER 1 WINS!" : ENDIF
+      IF h THEN : CLS 
+    8 CENTER "PLAYER 1 WINS!" : ENDIF
 
-If it was the contribution of the sums for the first player to get us out of the internal loop, then we decree his victory by writing an appropriate message. See [game state](./game-state.md#who-wins-w1-w2-net) for more information.
+If it was the contribution of the sums for the first player to get us out of the internal loop, then we decree his victory by writing an appropriate message. See [game state](./game-state.md#who-wins-h-j-n) for more information.
 
-    IF w2 THEN : CLS : LOCATE 0,2 : CENTER "PLAYER 2 WINS!" : ENDIF
+    IF j THEN : CENTER "PLAYER 2 WINS!" : ENDIF
 
-If it was the contribution of the sums for the second player to get us out of the internal loop, then we decree his victory by writing an appropriate message. See [game state](./game-state.md#who-wins-w1-w2-net) for more information.
+If it was the contribution of the sums for the second player to get us out of the internal loop, then we decree his victory by writing an appropriate message. See [game state](./game-state.md#who-wins-h-j-n) for more information.
 
-    IF net THEN : CLS : LOCATE 0,2 : CENTER "NO ONE WINS!" : ENDIF
+    IF n THEN : CENTER "NO ONE WINS!" : ENDIF
 
-If it was the fact that the game cannot go ahead since all the screen is filled by symbols, then write the appropriate message. Note that, due to the rules of the game, it is not possible to fill the screen and make the last move win. This ensures that the order of checking and writing messages is always correct. See [game state](./game-state.md#who-wins-w1-w2-net) for more information.
+If it was the fact that the game cannot go ahead since all the screen is filled by symbols, then write the appropriate message. Note that, due to the rules of the game, it is not possible to fill the screen and make the last move win. This ensures that the order of checking and writing messages is always correct. See [game state](./game-state.md#who-wins-h-j-n) for more information.
 
 	WAIT 4000 MS
 

@@ -37,7 +37,7 @@
 		CENTER "1...9 TO PLAY"; 
 		p=(WORD) 0 
 		a= (WORD)0 
-		p2=(WORD)0 
+		g=(WORD)0 
 		w1=0
 		w2=0
 		
@@ -57,7 +57,7 @@
   					
 4
 
-  						p2=(p2 OR u)
+  						g=(g OR u)
 					ENDIF
 					ADD q,1,1 TO 2 
 					GOSUB 9
@@ -72,7 +72,7 @@
 						
 5
 
-					ELSEIF (p2 AND 2^k)>0 THEN
+					ELSEIF (g AND 2^k)>0 THEN
 						PUT IMAGE r AT l+x*16,t+y*16
 					ELSE
 						PUT IMAGE b AT l+x*16,t+y*16
@@ -85,10 +85,10 @@
 6
 
 			w1=w1+((a AND 146)=146)+((a AND 273)=273)+((a AND 84)=84)+((a AND 73)=73)
-			w2=((p2 AND 7)=7)+((p2 AND 56)=56)+((p2 AND 448)=448)+((p2 AND 292)=292)
+			w2=((g AND 7)=7)+((g AND 56)=56)+((g AND 448)=448)+((g AND 292)=292)
 			
 7
-			w2=w2+((p2 AND 146)=146)+((p2 AND 273)=273)+((p2 AND 84)=84)+((p2 AND 73)=73)
+			w2=w2+((g AND 146)=146)+((g AND 273)=273)+((g AND 84)=84)+((g AND 73)=73)
 			
 			EXIT IF (w1) OR (w2) OR (n)
 		LOOP

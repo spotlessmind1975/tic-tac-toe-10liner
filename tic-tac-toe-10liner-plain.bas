@@ -36,7 +36,7 @@
 		LOCATE 0, SCREEN ROWS - 1
 		CENTER "1...9 TO PLAY"; 
 		p=(WORD) 0 
-		p1= (WORD)0 
+		a= (WORD)0 
 		p2=(WORD)0 
 		w1=0
 		w2=0
@@ -52,7 +52,7 @@
 				IF (p AND u)=0 THEN
   					p=(p OR u)
   					IF q=1 THEN
-     					p1=(p1 OR u)
+     					a=(a OR u)
   					ELSE
   					
 4
@@ -67,7 +67,7 @@
 			FOR y = 0 TO 2
 				FOR x = 0 TO 2
 					k=y*3+x
-					IF (p1 AND 2^k)>0 THEN
+					IF (a AND 2^k)>0 THEN
 						PUT IMAGE c AT l+x*16,t+y*16
 						
 5
@@ -79,12 +79,12 @@
 					ENDIF
 				NEXT
 			NEXT
-			w1=((p1 AND 7)=7)+((p1 AND 56)=56)+((p1 AND 448)=448)+((p1 AND 292)=292)
+			w1=((a AND 7)=7)+((a AND 56)=56)+((a AND 448)=448)+((a AND 292)=292)
 			n=(p=511)
 
 6
 
-			w1=w1+((p1 AND 146)=146)+((p1 AND 273)=273)+((p1 AND 84)=84)+((p1 AND 73)=73)
+			w1=w1+((a AND 146)=146)+((a AND 273)=273)+((a AND 84)=84)+((a AND 73)=73)
 			w2=((p2 AND 7)=7)+((p2 AND 56)=56)+((p2 AND 448)=448)+((p2 AND 292)=292)
 			
 7

@@ -19,7 +19,7 @@ BASIC 10 liner "Tic-Tac-Toe" for 2 players
   
 This game joined the ["BASIC10Liner" competition 2023](https://gkanold.wixsite.com/homeputerium).
 
-![pur128](pictures/source-pur120.png)
+![pur128](pictures/source-pur120-proof.png)
 
 Since it joined this competition, the game itself is modest in size, and the given source code respects strong constraints on the length of each line (category: **PUR-120**) and it does not rely on third party libraries. The check has been done using [UGBASIC-IDE](https://spotlessmind1975.itch.io/ugbasic-ide).
 

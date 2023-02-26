@@ -89,23 +89,18 @@
 			net=(p=511)
 			EXIT IF (w1<>0) OR (w2<>0) OR (net<>0)
 		LOOP
-		CLS BLACK 
+		CLS
+		LOCATE 0,2
 		IF net THEN
-			CLS
 			
 8
 
-			LOCATE 0,2
 			CENTER "NO ONE WINS!"
 		ENDIF
 		IF w2 THEN
-		    CLS
-			LOCATE 0,2
 			CENTER "PLAYER 2 WINS!"
 		ENDIF
 		IF w1 THEN
-			CLS
-			LOCATE 0,2
 			CENTER "PLAYER 1 WINS!"
 		ENDIF
 		WAIT 4000 MILLISECOND
